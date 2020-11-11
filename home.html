@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layouts :: header"></head>
+
+<body>
+
+<nav th:replace="layouts :: navBar"></nav>
+
+<div class="container">
+	<br></br>
+	<h3> Main Dashboard </h3>
+	<br></br>
+	<h4> Deliveries </h4>
+	<hr>
+	<div class="row">
+		<div class="col-md-6">
+			<table class= "table table-bordered table-striped">
+				<thead class = "thead-dark">
+					<tr>
+						<th> Delivery No. </th>
+						<th> Company </th>
+						<th> No. of Items </th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="deliveryInfo : ${deliveryItemCount}">
+						<td th:text="${deliveryInfo.deliveryId}"/>
+						<td th:text="${deliveryInfo.companyName}"/>
+						<td th:text="${deliveryInfo.itemCount}"/>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="col-md-4">
+			<canvas id="deliveryChartDistance" height="50" width="50"></canvas>
+			
+			<script>
+				var chartData = "[[${deliveryDistance}]]"
+			</script>
+		</div>
+	</div>
+</div>
+<br></br>
+
+<div class="container">
+	<h4> Current Items </h4>
+	<hr>
+	<div class="row">
+		<div class="col-md-6">
+			<table class= "table table-bordered table-striped">
+				<thead class = "thead-dark">
+					<tr>
+						<th> Item No. </th>
+						<th> Item Name </th>
+						<th> Notes </th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="aItem : ${itemsList}">
+						<td th:text="${aItem.itemId}"/>
+						<td th:text="${aItem.name}"/>
+						<td th:text="${aItem.description}"/>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+	
+
+<!-- JS code to be at the bottom of the page, takes longer to load. Load HTML first -->
+<script type="text/javascript" th:src="@{js/deliveryChart.js}"></script>
+	
+</body>
+
+</html>
