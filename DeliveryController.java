@@ -74,10 +74,11 @@ public class DeliveryController {
 		Delivery delivery = deliveryRepository.findByDeliveryId(deliveryId);
 		model.addAttribute("delivery", delivery);
 		
+		//Only return items that aren't already in a delivery
 		List<Item> items = itemRepository.findAll();
 		List<Item> itemsWithNull = items.stream().filter(i -> i.getDelivery() == null).collect(Collectors.toList());
-		//^Only return items that aren't already in a delivery. Without this, the new delivery will just overwrite the first
-		model.addAttribute("allItems", itemsWithNull); //carries over the list of items from db for the html when selecting items dropdown
+		
+		model.addAttribute("allItems", itemsWithNull);
 		
 		return "deliveries/new-delivery";
 	}
