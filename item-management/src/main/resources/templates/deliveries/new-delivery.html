@@ -19,9 +19,7 @@
 			
 			<textarea type="text" placeholder="Enter Company Description" th:field="${delivery.description}"></textarea>
 			
-			<!-- "*{items}" and ${delivery.items} are the same. Asterisk is used to reference a property within the parent object -->
-			<!-- Which has been defined in the form: th:object="${delivery}" -->
-			<!-- multiple sets how many can be selected at a time -->
+			<!-- multiple sets many can be selected at a time -->
 			<select th:field="*{items}" multiple="multiple">
 				<option th:each = "item : ${allItems}"
 						th:value = "${item.itemId}"
