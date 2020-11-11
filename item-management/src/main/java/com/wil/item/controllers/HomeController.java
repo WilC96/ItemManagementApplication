@@ -31,15 +31,13 @@ public class HomeController {
 	public String displayHome(Model model) throws JsonProcessingException {
 		
 		//Items
-		List<Item> items = itemRepository.findAll(); // finds all in the db and puts into a list
+		List<Item> items = itemRepository.findAll();
 		model.addAttribute("itemsList", items);
 		
 		//Deliveries
 		List<DeliveryItem> deliveriesItems = deliveryRepository.deliveryItems();
 		model.addAttribute("deliveryItemCount", deliveriesItems);
 		
-		//Map to json object to be interpreted by js
-		Map<String, Object> map = new HashMap<>();
 		//Bring in a List of records from the sql query
 		List<ChartData> deliveryDistance = deliveryRepository.deliveryDistance();
 		
