@@ -19,8 +19,8 @@ public class Delivery {
 	private String description;
 	private String distance; //LOCAL, LONG, OVERSEAS
 	
-	@OneToMany(mappedBy = "delivery") //Define relationship and the member variable name in respective entity
-	private List<Item> items; //Create list to store the many items
+	@OneToMany(mappedBy = "delivery")
+	private List<Item> items;
 
 	public Delivery() {
 		
