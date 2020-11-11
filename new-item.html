@@ -10,9 +10,8 @@
 
 	<div class="container">
 	<br></br>
-		<form action="/items/save" th:object="${item}" method="POST"> <!-- POST because we are SUBMITTING a form/info -->
+		<form action="/items/save" th:object="${item}" method="POST">
 			
-			<!-- Binds the selected item to update (USED FOR UPDATES) -->
 			<input type="hidden" th:field="${item.itemId}"/>
 		
 			<input type="text" placeholder="Item Name" th:field="${item.name}"> 
