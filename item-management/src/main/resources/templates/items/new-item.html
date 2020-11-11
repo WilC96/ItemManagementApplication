@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layouts :: header"></head>
+
+<body>
+
+<nav th:replace="layouts :: navBar"></nav>
+
+	<div class="container">
+	<br></br>
+		<form action="/items/save" th:object="${item}" method="POST"> <!-- POST because we are SUBMITTING a form/info -->
+			
+			<!-- Binds the selected item to update (USED FOR UPDATES) -->
+			<input type="hidden" th:field="${item.itemId}"/>
+		
+			<input type="text" placeholder="Item Name" th:field="${item.name}"> 
+			
+			<textarea type="text" placeholder="Enter Item Description" th:field="${item.description}"></textarea>
+			
+			<button type="submit">Create Item</button>
+		</form>
+	</div>
+</body>
+
+</html>
