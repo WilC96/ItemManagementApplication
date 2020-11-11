@@ -21,6 +21,7 @@ import com.wil.item.entities.Item;
 @Controller
 public class HomeController {
 	
+	//grab instances from Spring Context with autowired marker
 	@Autowired
 	IItemRepository itemRepository;
 	
