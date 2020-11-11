@@ -12,7 +12,6 @@ public interface IItemRepository extends CrudRepository<Item, Long>{
 	@Override
 	public List<Item> findAll();
 	
-	// CrudRepo handling the logic based on method name
 	public Item findByItemId(long id);
 
 }
