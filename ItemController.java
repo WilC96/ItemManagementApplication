@@ -33,13 +33,11 @@ public class ItemController {
 	@GetMapping("/new")
 	public String createItemForm(Model model) {
 		
-		Item i = new Item(); //create an empty object to map to the form submission
+		Item i = new Item();
 		
-		model.addAttribute("item", i); //binds empty object to name specified in th:object
-		//takes the exact naming in template and the object to map (name, object)
+		model.addAttribute("item", i);
 		
 		return "items/new-item"; 
-		//name of html page(in template) for reroute on url endpoint /items/new, .html not required
 	}
 	
 	@PostMapping("/save")
@@ -47,7 +45,6 @@ public class ItemController {
 		
 		itemRepository.save(item);
 		
-		//prevent duplicate submissions(spamming submit) via redirect to any page
 		return "redirect:/items/new";
 	}
 	
