@@ -33,6 +33,8 @@ public class HomeController {
 	@GetMapping("/")
 	public String displayHome(Model model) throws JsonProcessingException {
 		
+		model.addAttribute("applicationVersion", ver);
+		
 		//Items
 		List<Item> items = itemRepository.findAll();
 		model.addAttribute("itemsList", items);
