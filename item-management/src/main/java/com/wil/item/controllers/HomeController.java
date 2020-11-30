@@ -21,6 +21,9 @@ import com.wil.item.entities.Item;
 @Controller
 public class HomeController {
 	
+	@Value("${version}")
+	private String ver;
+	
 	@Autowired
 	IItemRepository itemRepository;
 	
